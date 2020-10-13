@@ -10,6 +10,7 @@ namespace TicTacToeGame
             char userLetterChoice = ChooseUserLetter();
             ShowBoard(board);
             int index = UserMakeMove(board);
+            CheckIfFreeSpace(board,index,userLetterChoice);
         }
         public static char[] CreationBoard()
         {
@@ -60,5 +61,17 @@ namespace TicTacToeGame
                     }
                 }
             }
+        public static void CheckIfFreeSpace(char[] board, int index, char userLetterChoice)
+        {
+            if(board[index]==' ' && index>=1 && index<=9)
+            {
+                Console.WriteLine("Given Index " + index + " is free");
+                board[index] = userLetterChoice;
+            }
+            else
+            {
+                Console.WriteLine("Given Index " + index + " is not free or valid");
+            }
+        }
     }
 }
