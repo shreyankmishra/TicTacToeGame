@@ -20,13 +20,19 @@ namespace TicTacToeGame
         }
         public static char ChooseUserLetter()
         {
-            Console.WriteLine("Choose a letter between X and O");
-            char choice = Convert.ToChar(Console.ReadLine());
-            if (choice == 'x' || choice == 'X' || choice == 'o' || choice == 'O')
-                return char.ToUpper(choice);
-            else
+            while (true)
             {
-                return choice = ' ';
+                Console.WriteLine("Choose a letter between X and O");
+                char choice = Convert.ToChar(Console.ReadLine());
+                if (choice == 'x' || choice == 'X' || choice == 'o' || choice == 'O')
+                {
+                    Console.WriteLine("User Choice is " + char.ToUpper(choice));
+                    return char.ToUpper(choice);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Choice");
+                }
             }
         }
     }
