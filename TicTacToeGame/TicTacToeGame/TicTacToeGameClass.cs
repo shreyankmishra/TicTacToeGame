@@ -43,22 +43,22 @@ namespace TicTacToeGame
             Console.WriteLine("\n" + board[4] + " | " + board[5] + " | " + board[6]);
             Console.WriteLine("\n" + board[7] + " | " + board[8] + " | " + board[9]);
         }
-        public static int UserMakeMove(char[] board)
-        {
-            Console.WriteLine("Enter the index from 1 to 9");
-            int index = Convert.ToInt32(Console.ReadLine());
-            while (true)
+         public static int UserMakeMove(char[] board)
             {
-                if(board[index]==' ')
+                Console.WriteLine("Enter the index from 1 to 9");
+                int index = Convert.ToInt32(Console.ReadLine());
+                while (true)
                 {
-                    Console.WriteLine("Index is free.");
-                    return index;
-                }
-                else
-                {
-                    Console.WriteLine("Index is not free.");
+                    if (board[index] == ' ' && index>=1 && index<=9)
+                    {
+                        Console.WriteLine("Index is valid and free.");
+                        return index;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Index is invalid or not free.");
+                    }
                 }
             }
-        }
     }
 }
