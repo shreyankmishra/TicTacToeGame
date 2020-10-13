@@ -3,7 +3,9 @@
 namespace TicTacToeGame
 {
     class TicTacToeGameClass
-    {
+    { public enum Player { COMPUTER, USER};
+        public const int HEAD = 0;
+        public const int TAIL = 1;
         static void Main(string[] args)
         {
             char[] board = CreationBoard();
@@ -11,6 +13,7 @@ namespace TicTacToeGame
             ShowBoard(board);
             int index = UserMakeMove(board);
             CheckIfFreeSpace(board,index,userLetterChoice);
+            Player firstPlayer = PlayingFirst();
         }
         public static char[] CreationBoard()
         {
@@ -73,5 +76,21 @@ namespace TicTacToeGame
                 Console.WriteLine("Given Index " + index + " is not free or valid");
             }
         }
+        public static Player PlayingFirst()
+        {
+            Random random = new Random();
+            int toss = random.Next(0, 2);
+            if (toss == HEAD)
+            {
+                Console.WriteLine("User goes first.");
+                return Player.USER;
+            }
+            else
+            {
+                Console.WriteLine("Computer goes first.");
+                return Player.COMPUTER;
+            }
+        }
+
     }
 }
