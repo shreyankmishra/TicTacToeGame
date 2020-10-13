@@ -8,6 +8,7 @@ namespace TicTacToeGame
         {
             char[] board = CreationBoard();
             char userLetterChoice = ChooseUserLetter();
+            ShowBoard(board);
         }
         public static char[] CreationBoard()
         {
@@ -34,6 +35,12 @@ namespace TicTacToeGame
                     Console.WriteLine("Invalid Choice");
                 }
             }
+        }
+        public static void ShowBoard(char[] board)
+        {
+            Console.WriteLine(board[1] + " | " + board[2] + " | " + board[3]);
+            Console.WriteLine("\n" + board[4] + " | " + board[5] + " | " + board[6]);
+            Console.WriteLine("\n" + board[7] + " | " + board[8] + " | " + board[9]);
         }
     }
 }
