@@ -9,6 +9,7 @@ namespace TicTacToeGame
             char[] board = CreationBoard();
             char userLetterChoice = ChooseUserLetter();
             ShowBoard(board);
+            int index = UserMakeMove(board);
         }
         public static char[] CreationBoard()
         {
@@ -41,6 +42,23 @@ namespace TicTacToeGame
             Console.WriteLine(board[1] + " | " + board[2] + " | " + board[3]);
             Console.WriteLine("\n" + board[4] + " | " + board[5] + " | " + board[6]);
             Console.WriteLine("\n" + board[7] + " | " + board[8] + " | " + board[9]);
+        }
+        public static int UserMakeMove(char[] board)
+        {
+            Console.WriteLine("Enter the index from 1 to 9");
+            int index = Convert.ToInt32(Console.ReadLine());
+            while (true)
+            {
+                if(board[index]==' ')
+                {
+                    Console.WriteLine("Index is free.");
+                    return index;
+                }
+                else
+                {
+                    Console.WriteLine("Index is not free.");
+                }
+            }
         }
     }
 }
